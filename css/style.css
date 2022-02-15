@@ -1,0 +1,191 @@
+/* Обнуление  */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+html,
+body {
+	height: 100%;
+	line-height: 1;
+	font-size: 16px;
+	color: #fff;
+	background-color: #333333;
+}
+
+.wrapper {
+	min-height: 100%;
+}
+
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.header__container {
+	max-width: 1110px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 70px;
+}
+.header__contact {
+}
+.menu__icon {
+	display: none;
+}
+.menu__body {
+}
+.menu__list {
+	display: flex;
+}
+.list__item {
+	margin-right: 64px;
+	text-transform: uppercase;
+}
+.list__item:last-child {
+	margin-right: 0px;
+}
+
+.header__contact {
+}
+
+.block__one {
+	background: url(../img/bg.jpg) 50% no-repeat;
+	height: 1045px;
+}
+
+.block__container {
+}
+
+@media (max-width: 1200px) {
+	.header {
+		padding-right: 5%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.header {
+		padding: 0 20px;
+	}
+	body {
+		font-size: 14px;
+	}
+	.list__item {
+		margin-right: 20px;
+		text-transform: uppercase;
+	}
+}
+
+@media (max-width: 768px) {
+	.list__item {
+		margin-right: 20px;
+		text-transform: uppercase;
+	}
+	/* Гамбургер иконка */
+	.menu-btn {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		z-index: 2;
+		overflow: hidden;
+		margin: 30px;
+	}
+
+	.menu-btn span {
+		width: 30px;
+		height: 2px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #222222;
+		transition: all 0.5s;
+	}
+
+	.menu-btn span:nth-of-type(2) {
+		top: calc(50% - 5px);
+	}
+	.menu-btn span:nth-of-type(3) {
+		top: calc(50% + 5px);
+	}
+
+	/* Меняем гамбургер иконку, когда меню открыто */
+	.menu-btn.active span:nth-of-type(1) {
+		display: none;
+	}
+	.menu-btn.active span:nth-of-type(2) {
+		top: 50%;
+		transform: translate(-50%, 0%) rotate(45deg);
+	}
+	.menu-btn.active span:nth-of-type(3) {
+		top: 50%;
+		transform: translate(-50%, 0%) rotate(-45deg);
+	}
+
+	/* Меню, которое будет появляться */
+	.menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 15px;
+		background: #333333;
+		transform: translateX(-200%);
+		transition: transform 0.5s;
+	}
+
+	.menu.active {
+		transform: translateX(0);
+	}
+
+	.menu__list {
+		flex-direction: column;
+		padding: 40px;
+		margin-top: 30px;
+	}
+
+	.list__item {
+		margin-top: 20px;
+	}
+
+	.menu li {
+		list-style-type: none;
+	}
+}
